@@ -23,6 +23,7 @@ public class MainForm extends JFrame {
     JTextField txtExponente;
     JButton btnAgregar1;
     JButton btnAgregar2;
+    JButton btnLimpiar;
     JLabel lblPoli1;
     JLabel lblPoli2;
     JLabel lblMensaje;
@@ -123,7 +124,17 @@ public class MainForm extends JFrame {
         txtExponente = new JTextField(5);
         btnAgregar1 = new JButton("Agregar 1");
         btnAgregar2 = new JButton("Agregar 2");
+        btnLimpiar = new JButton("Limpiar");
         
+        btnLimpiar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                lblPoli1.setText("1. ");
+                lblPoli2.setText("2. ");
+                lblMensaje.setText("Ok");
+                controlador.limpiar();                
+            }
+        });
         btnAgregar1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -161,6 +172,7 @@ public class MainForm extends JFrame {
         panel.add(txtExponente);
         panel.add(btnAgregar1);        
         panel.add(btnAgregar2);
+        panel.add(btnLimpiar);
         return panel;
     }
 }

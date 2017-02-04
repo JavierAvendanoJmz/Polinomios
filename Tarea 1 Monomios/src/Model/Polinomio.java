@@ -133,5 +133,9 @@ public class Polinomio {
     public Monomio getInicio() {
         return inicio;
     }
-        
+
+    public void setInicio(Monomio inicio) {
+        this.inicio = inicio;
+    }
+            
 }

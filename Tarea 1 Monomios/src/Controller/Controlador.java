@@ -16,6 +16,11 @@ public class Controlador {
     Polinomio polinomio;
     Polinomio polinomio2;
     
+    public void limpiar() {
+        polinomio.setInicio(null);
+        polinomio2.setInicio(null);
+    }
+    
     public String multiplicar() {
         if(polinomio.getInicio() == null || polinomio2.getInicio() == null)
             return "Falta polinomio para operacion";
