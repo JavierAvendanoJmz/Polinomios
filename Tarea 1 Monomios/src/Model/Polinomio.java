@@ -13,6 +13,22 @@ public class Polinomio {
     
     private Monomio inicio;
     
+    public void borrar() {        
+        if (inicio!= null) {
+            if (inicio.getSiguiente() == null) {
+                inicio = null;
+            } else {
+                Monomio ant = inicio;
+                Monomio m = ultimo();        
+                while (ant.getSiguiente()!= m) {
+                    ant = ant.getSiguiente();
+                }
+                ant.setSiguiente(null);
+                m = null;
+            }
+        }
+    }
+    
     public Polinomio multiplicar(Polinomio p){
         Polinomio producto = new Polinomio();
         Monomio auxI = inicio;
@@ -39,7 +55,8 @@ public class Polinomio {
             Monomio sum;
             while (aux != null) {    
                 sum = new Monomio(aux.getCoeficiente(),aux.getExponente());
-                while (aux.getSiguiente() != null && aux.isMismoGrado(aux.getSiguiente())){
+                while (aux.getSiguiente() != null && 
+                        aux.isMismoGrado(aux.getSiguiente())){
                     sum.suma(aux.getSiguiente());               
                     aux = aux.getSiguiente();
                 }

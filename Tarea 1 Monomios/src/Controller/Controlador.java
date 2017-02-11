@@ -16,6 +16,16 @@ public class Controlador {
     Polinomio polinomio;
     Polinomio polinomio2;
     
+    public String borrar(Integer i) {
+        if(i == 1) {
+            polinomio.borrar();
+            return polinomio.toString();
+        } else {
+            polinomio2.borrar();
+            return polinomio2.toString();
+        }        
+    }
+    
     public void limpiar() {
         polinomio.setInicio(null);
         polinomio2.setInicio(null);

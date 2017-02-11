@@ -24,6 +24,9 @@ public class MainForm extends JFrame {
     JButton btnAgregar1;
     JButton btnAgregar2;
     JButton btnLimpiar;
+    JButton btnDelete;
+    JButton btnDelete2;
+    JButton btnResolver;
     JLabel lblPoli1;
     JLabel lblPoli2;
     JLabel lblMensaje;
@@ -35,7 +38,7 @@ public class MainForm extends JFrame {
 
     public MainForm() {
         super("Polinomios");
-        super.setSize(480, 190);
+        super.setSize(600, 210);
         super.setResizable(false); 
         super.setLayout(new BorderLayout());
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,6 +48,22 @@ public class MainForm extends JFrame {
         super.add(createPnlBotones(), BorderLayout.SOUTH);
         super.setVisible(true);
     }    
+    
+    private JPanel createPnlResolver() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());  
+        btnResolver = new JButton("Ec. 2do Grado");
+        btnResolver.setBackground(Color.DARK_GRAY);
+        btnResolver.setForeground(Color.WHITE);
+        btnResolver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                new Ecuacion();
+            }
+        });
+        panel.add(btnResolver);
+        return panel;
+    }
     
     private JPanel createPnlBotones() {
         JPanel panel = new JPanel();
@@ -84,6 +103,7 @@ public class MainForm extends JFrame {
         panel.add(btnSumar);
         panel.add(btnRestar);
         panel.add(btnMultiplicar);
+        panel.add(createPnlResolver());
         return panel;
     }
     
@@ -103,9 +123,26 @@ public class MainForm extends JFrame {
         lblPoli1 = new JLabel("1. ");
         lblPoli2 = new JLabel("2. ");
         lblMensaje = new JLabel();
+        btnDelete = new JButton("<");
+        btnDelete2 = new JButton("<");
+        btnDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                lblPoli1.setText("1. "+controlador.borrar(1));
+            }
+        });
+        
+        btnDelete2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                lblPoli2.setText("2. "+controlador.borrar(2));
+            }
+        });
         
         pnlAux1.add(lblPoli1);
+        pnlAux1.add(btnDelete);
         pnlAux2.add(lblPoli2);
+        pnlAux2.add(btnDelete2);
         pnlAux3.add(lblMensaje);
         
         panel.add(pnlAux1);
