@@ -183,7 +183,7 @@ public class MainForm extends JFrame {
                     txtExponente.setText("");
                     lblMensaje.setText("");
                 } catch (Exception ex) {
-                    lblMensaje.setText("Error, casilla vacia");
+                    lblMensaje.setText("Error de casilla");
                 }
             }
         });
@@ -199,7 +199,7 @@ public class MainForm extends JFrame {
                     txtExponente.setText("");
                     lblMensaje.setText("");
                 } catch (Exception ex) {
-                    lblMensaje.setText("Error, casilla vacia");
+                    lblMensaje.setText("Error de casilla");
                 }
             }
         });
